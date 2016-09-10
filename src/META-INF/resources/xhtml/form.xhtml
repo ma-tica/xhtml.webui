@@ -8,40 +8,8 @@
 	xmlns:c="http://java.sun.com/jsp/jstl/core">
 
 
-<!-- 	<pe:fluidGrid id="fluidGrid" -->
-<!-- 		value="#{form.items}" var="data" -->
-<!-- 		resizeBound="false" hGutter="20" widgetVar="fluidGridWdgt"> -->
-<!-- 		<pe:fluidGridItem type="input"> -->
-<!-- 			<div class="dynaFormLabel"> -->
-<!-- 				<p:outputLabel for="txt" value="#{data.propertyHeader}" /> -->
-<!-- 			</div> -->
-<!-- 			<p:inputText id="txt" value="#{data.value}" -->
-<!-- 				required="#{data.required}" /> -->
-<!-- 		</pe:fluidGridItem> -->
-<!-- 		<pe:fluidGridItem type="select" styleClass="select"> -->
-<!-- 			<div class="dynaFormLabel"> -->
-<!-- 				<p:outputLabel for="menu" value="#{data.propertyHeader}" /> -->
-<!-- 			</div> -->
-<!-- 			<p:selectOneMenu id="menu" value="#{data.value}" -->
-<!-- 				required="#{data.required}"> -->
-<!-- 				<f:selectItems value="#{data.selectItems}" /> -->
-<!-- 			</p:selectOneMenu> -->
-<!-- 		</pe:fluidGridItem> -->
-<!-- 		<pe:fluidGridItem type="calendar" styleClass="calendar"> -->
-<!-- 			<div class="dynaFormLabel"> -->
-<!-- 				<p:outputLabel for="cal" value="#{data.propertyHeader}" /> -->
-<!-- 			</div> -->
-<!-- 			<p:calendar id="cal" value="#{data.value}" -->
-<!-- 				required="#{data.required}" showOn="button" /> -->
-<!-- 		</pe:fluidGridItem> -->
-<!-- 	</pe:fluidGrid> -->
+	<p:panelGrid binding="#{crud.panel}">
 
-<!-- 	<p:panel id="form_panel" header="#{form.title}"> -->
-	
-<!-- 	</p:panel> -->
-
-		<h:panelGrid binding="#{crud.panel}">
-		
-		</h:panelGrid>
+	</p:panelGrid>
 
 </ui:composition>
