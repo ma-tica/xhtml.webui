@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<!-- <f:view contentType="text/html" id="fview"> -->
+
+<!-- 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> -->
+<!-- 	<title>Page template with PrimeFaces</title> -->
+<!-- 	<ui:debug /> -->
+<!-- 	<f:metadata> -->
+<!-- 		<ui:insert name="bean" /> -->
+<!-- 	</f:metadata> -->
+
+
+	<f:facet name="last">
+		<h:outputStylesheet name="css/mytheme.css"></h:outputStylesheet>
+	</f:facet>
+
+<h:head>
+	<script type="text/javascript">
+		//<![CDATA[
+
+		var selectedcell;
+
+		function onCellClickWrapper(element, propertyName, rowId) {
+			selectedcell = $(element);
+			onCellClick([ {
+				name : 'propertyName',
+				value : propertyName
+			}, {
+				name : 'rowId',
+				value : rowId
+			} ]);
+		}
+		//]]>
+	</script>
+
+
+</h:head>
+
+<h:body>
+
+
+	<h:form id="form_growl">
+		<p:growl id="messages" showDetail="true" autoUpdate="true" />
+	</h:form>
+
+
+	<p:layout fullPage="true">
+		<p:layoutUnit position="north">
+			<ui:include src="commonToolbar.xhtml" />
+		</p:layoutUnit>
+
+		<p:layoutUnit position="west" closable="false" collapsible="true" 
+			resizable="true" size="30%" header="#{mclbl['selectiongrid.header']}" effect="">
+			
+			<h:form id="form_grid">
+				<ui:include src="commonSelectiongrid.xhtml" />
+			</h:form>
+		</p:layoutUnit>
+
+		<p:layoutUnit position="center">
+			<h:form id="form_main">
+				<!-- 					<p:messages autoUpdate="true" id="msgs" showDetail="true" -->
+				<!-- 						showSummary="true" /> -->
+				<p:remoteCommand name="saveFormMain" process="@form"
+					update=":form_grid :form_growl :form_toolbar @form"
+					action="#{bean.save}" />
+				<p:remoteCommand name="deleteFormMain" process="@form"
+					update=":form_grid :form_growl :form_toolbar @form"
+					action="#{bean.delete}" />
+
+				<!-- 					<ui:insert name="content" /> -->
+				<ui:include src="commonForm.xhtml"></ui:include>
+			</h:form>
+		</p:layoutUnit>
+
+
+	</p:layout>
+
+
+
+</h:body>
+
+<!-- </f:view> -->
+</html>
