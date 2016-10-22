@@ -16,20 +16,23 @@
 
 		<p:toolbar>
 			<f:facet name="left">
+			
 				<p:commandButton type="submit" immediate="true" resetValues="true"
 					ajax="true" value="New" icon="ui-icon-document"
 					actionListener="#{bean.create}" update=":form_main @form"
-					process="@this" 
+					process="@this"
+					disabled="#{bean.editing eq true}"
+					 
 					/>
 <!-- disabled="#{bean.editing eq true}" -->
 				<p:commandButton type="button" ajax="true" value="Save"
 					icon="ui-icon-disk" onclick="saveFormMain();"
-					disabled="#{bean.selected eq null }" />
+					disabled="#{bean.selected eq null or bean.editing eq false }" />
 <!-- 					disabled="#{bean.selected eq null or bean.editing eq false}" /> -->
 
 				<p:commandButton type="button" ajax="true" value="Delete"
 					icon="ui-icon-trash" onclick="deleteFormMain();"
-					disabled="#{bean.selected eq null}"
+					disabled="#{bean.selected eq null or bean.editing eq true }"
 					update=":form_grid :form_main @form">
 					<p:confirm header="Confirmation"
 						message="Procedere con l'eliminazione ?" icon="ui-icon-alert" />
