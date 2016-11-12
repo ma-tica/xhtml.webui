@@ -17,32 +17,45 @@
 		<p:toolbar>
 			<f:facet name="left">
 			
+				<!--  Button NEW  -->
 				<p:commandButton type="submit" immediate="true" resetValues="true"
 					ajax="true" value="New" icon="ui-icon-document"
 					actionListener="#{bean.create}" update=":form_main @form"
 					process="@this"
-					disabled="#{bean.editing eq true}"
-					 
-					/>
-<!-- disabled="#{bean.editing eq true}" -->
+					disabled="#{bean.editing eq true}" >
+				</p:commandButton>					 
+					
+				<!--  Button SAVE  -->	
 				<p:commandButton type="button" ajax="true" value="Save"
 					icon="ui-icon-disk" onclick="saveFormMain();"
-					disabled="#{bean.selected eq null or bean.editing eq false }" />
-<!-- 					disabled="#{bean.selected eq null or bean.editing eq false}" /> -->
+					disabled="#{bean.selected eq null or bean.editing eq false }" >
+				</p:commandButton>
 
+				<!--  Button DELETE  -->
 				<p:commandButton type="button" ajax="true" value="Delete"
 					icon="ui-icon-trash" onclick="deleteFormMain();"
-					disabled="#{bean.selected eq null or bean.editing eq true }"
-					update=":form_grid :form_main @form">
+					disabled="#{bean.selected eq null or bean.editing eq true }" >					
 					<p:confirm header="Confirmation"
 						message="Procedere con l'eliminazione ?" icon="ui-icon-alert" />
 				</p:commandButton>
-<!-- 					disabled="#{bean.selected eq null or bean.editing eq true}" -->
 
+				<!--  Button CANCEL  -->
+				<p:commandButton type="button" ajax="true" value="Annulla"
+					icon="ui-icon-trash" 
+					disabled="#{bean.editing eq false }"
+					onclick="cancelFormMain();">
+					<p:confirm header="Confirmation"
+						message="Annullare le modifiche in corso ?" icon="ui-icon-alert" />
+				</p:commandButton>
 
 				<span class="ui-separator"> <span
 					class="ui-icon ui-icon-grip-dotted-vertical" />
 				</span>
+				<p:commandButton type="submit" immediate="true" resetValues="true"
+					ajax="true" value=">>" icon="ui-icon-document"
+					actionListener="#{bean.next}" update=":form_grid :form_main @form"
+					process="@this">
+				</p:commandButton>					 
 
 			</f:facet>
 

@@ -21,24 +21,6 @@
 	</f:facet>
 
 <h:head>
-	<script type="text/javascript">
-		//<![CDATA[
-
-		var selectedcell;
-
-		function onCellClickWrapper(element, propertyName, rowId) {
-			selectedcell = $(element);
-			onCellClick([ {
-				name : 'propertyName',
-				value : propertyName
-			}, {
-				name : 'rowId',
-				value : rowId
-			} ]);
-		}
-		//]]>
-	</script>
-
 
 </h:head>
 
@@ -73,6 +55,15 @@
 				<p:remoteCommand name="deleteFormMain" process="@form"
 					update=":form_grid :form_growl :form_toolbar @form"
 					action="#{bean.delete}" />
+				<p:remoteCommand name="cancelFormMain" process="@form"
+					update=":form_grid :form_growl :form_toolbar @form"
+					action="#{bean.cancel}" />
+
+
+				<p:remoteCommand name="startEding" process="@form"
+					update=":form_grid :form_growl :form_toolbar @form"
+					/>
+
 
 				<!-- 					<ui:insert name="content" /> -->
 				<ui:include src="commonForm.xhtml"></ui:include>
