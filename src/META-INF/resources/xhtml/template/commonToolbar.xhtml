@@ -7,6 +7,9 @@
 	xmlns:c="http://java.sun.com/jsp/jstl/core">
 
 	<h:form id="form_toolbar">
+	
+		<p:blockUI block=":main_fullpage_layout" trigger="toolbarnewbtn, toolbarsavebtn, toolbardeletebtn, toolbarcancelbtn" />
+	
 		<p:confirmDialog global="true">
 			<p:commandButton value="Si" type="button"
 				styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
@@ -18,7 +21,7 @@
 			<f:facet name="left">
 			
 				<!--  Button NEW  -->
-				<p:commandButton type="submit" immediate="true" resetValues="true"
+				<p:commandButton id="toolbarnewbtn" type="submit" immediate="true" resetValues="true"
 					ajax="true" value="New" icon="ui-icon-document"
 					actionListener="#{bean.create}" update=":form_main @form"
 					process="@this"
@@ -26,13 +29,13 @@
 				</p:commandButton>					 
 					
 				<!--  Button SAVE  -->	
-				<p:commandButton type="button" ajax="true" value="Save"
+				<p:commandButton id="toolbarsavebtn" type="button" ajax="true" value="Save"
 					icon="ui-icon-disk" onclick="saveFormMain();"
 					disabled="#{bean.selected eq null or bean.editing eq false }" >
 				</p:commandButton>
 
 				<!--  Button DELETE  -->
-				<p:commandButton type="button" ajax="true" value="Delete"
+				<p:commandButton id="toolbardeletebtn" type="button" ajax="true" value="Delete"
 					icon="ui-icon-trash" onclick="deleteFormMain();"
 					disabled="#{bean.selected eq null or bean.editing eq true }" >					
 					<p:confirm header="Confirmation"
@@ -40,7 +43,7 @@
 				</p:commandButton>
 
 				<!--  Button CANCEL  -->
-				<p:commandButton type="button" ajax="true" value="Annulla"
+				<p:commandButton id="toolbarcancelbtn" type="button" ajax="true" value="Annulla"
 					icon="ui-icon-trash" 
 					disabled="#{bean.editing eq false }"
 					onclick="cancelFormMain();">
@@ -51,11 +54,11 @@
 				<span class="ui-separator"> <span
 					class="ui-icon ui-icon-grip-dotted-vertical" />
 				</span>
-				<p:commandButton type="submit" immediate="true" resetValues="true"
-					ajax="true" value=">>" icon="ui-icon-document"
-					actionListener="#{bean.next}" update=":form_grid :form_main @form"
-					process="@this">
-				</p:commandButton>					 
+<!-- 				<p:commandButton type="submit" immediate="true" resetValues="true" -->
+<!-- 					ajax="true" value=">>" icon="ui-icon-document" -->
+<!-- 					actionListener="#{bean.next}" update=":form_grid :form_main @form" -->
+<!-- 					process="@this"> -->
+<!-- 				</p:commandButton>					  -->
 
 			</f:facet>
 
