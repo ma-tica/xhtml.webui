@@ -22,13 +22,6 @@
 
 <h:head>
 
-	<script>
-	
-// 		$(document).ready( function() {
-// 			$('.detail_tabview_jobber_gif').hide();
-// 		});
-	
-	</script>
 
 </h:head>
 
@@ -45,12 +38,14 @@
 			<ui:include src="commonToolbar.xhtml" />
 		</p:layoutUnit>
 
-		<p:layoutUnit position="west" closable="false" collapsible="true" 
-			resizable="true" size="30%" header="#{mclbl['selectiongrid.header']}" effect="">
+		<p:layoutUnit id="mcmatica-west-layout" position="west" closable="false" collapsible="true" 
+			resizable="true" size="30%" header="#{mclbl['selectiongrid.header']}" effect="" >
 			
-			<h:form id="form_grid">
+			<h:form id="form_grid"  >
 				<ui:include src="commonSelectiongrid.xhtml" />
 			</h:form>
+			
+			
 		</p:layoutUnit>
 
 		<p:layoutUnit position="center">
@@ -81,6 +76,20 @@
 
 	</p:layout>
 
+
+				<script>
+	
+		$(document).ready( function() {
+			var west = $('#mcmatica-west-layout > .ui-widget-content');
+			
+			console.log(west.height());
+			
+			$('#form_grid').find('.ui-datatable-scrollable-body').css('height', west.height()-115);
+			
+			
+		});
+	
+	</script>
 
 
 </h:body>
