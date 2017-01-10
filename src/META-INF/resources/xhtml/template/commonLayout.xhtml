@@ -16,9 +16,9 @@
 <!-- 	</f:metadata> -->
 
 
-	<f:facet name="last">
-		<h:outputStylesheet name="css/mytheme.css"></h:outputStylesheet>
-	</f:facet>
+<f:facet name="last">
+	<h:outputStylesheet name="css/mytheme.css"></h:outputStylesheet>
+</f:facet>
 
 <h:head>
 
@@ -38,14 +38,15 @@
 			<ui:include src="commonToolbar.xhtml" />
 		</p:layoutUnit>
 
-		<p:layoutUnit id="mcmatica-west-layout" position="west" closable="false" collapsible="true" 
-			resizable="true" size="30%" header="#{mclbl['selectiongrid.header']}" effect="" >
-			
-			<h:form id="form_grid"  >
+		<p:layoutUnit id="mcmatica-west-layout" position="west"
+			closable="false" collapsible="true" resizable="true" size="30%"
+			header="#{mclbl['selectiongrid.header']}" effect="">
+
+			<h:form id="form_grid">
 				<ui:include src="commonSelectiongrid.xhtml" />
 			</h:form>
-			
-			
+
+
 		</p:layoutUnit>
 
 		<p:layoutUnit position="center">
@@ -64,8 +65,7 @@
 
 
 				<p:remoteCommand name="startEding" process="@form"
-					update=":form_grid :form_growl :form_toolbar @form"
-					/>
+					update=":form_grid :form_growl :form_toolbar @form" />
 
 
 				<!-- 					<ui:insert name="content" /> -->
@@ -77,18 +77,15 @@
 	</p:layout>
 
 
-				<script>
-	
-		$(document).ready( function() {
-			var west = $('#mcmatica-west-layout > .ui-widget-content');
-			
-			console.log(west.height());
-			
-			$('#form_grid').find('.ui-datatable-scrollable-body').css('height', west.height()-115);
-			
-			
-		});
-	
+	<script>
+		$(document).ready(
+				function() {
+					var west = $('#mcmatica-west-layout > .ui-widget-content');
+
+					$('#form_grid').find('.ui-datatable-scrollable-body').css(
+							'height', west.height() - 115);
+
+				});
 	</script>
 
 
