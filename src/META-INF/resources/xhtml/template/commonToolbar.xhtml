@@ -63,9 +63,10 @@
 			</f:facet>
 
 			<f:facet name="right">
-				<p:menuButton value="Options">
-					<p:menuitem value="Home" action="#{bean.goToHome}" />
-				</p:menuButton>
+				<p:commandButton type="submit"  value="Home" action="#{bean.goToHome}" icon="fa fa-home" process="@this" ></p:commandButton>
+<!-- 				<p:menuButton value="Options"> -->
+<!-- 					<p:menuitem value="Home" action="#{bean.goToHome}" /> -->
+<!-- 				</p:menuButton> -->
 			</f:facet>
 
 		</p:toolbar>
