@@ -8,7 +8,7 @@
 
 	<h:form id="form_toolbar">
 	
-		<p:blockUI block=":main_fullpage_layout" trigger="toolbarnewbtn, toolbarsavebtn, toolbardeletebtn, toolbarcancelbtn" />
+<!-- 		<p:blockUI block=":main_fullpage_layout" trigger="toolbarnewbtn, toolbarsavebtn, toolbardeletebtn, toolbarcancelbtn" /> -->
 	
 		<p:confirmDialog global="true">
 			<p:commandButton value="Si" type="button"
@@ -21,10 +21,14 @@
 			<f:facet name="left">
 			
 				<!--  Button NEW  -->
-				<p:commandButton id="toolbarnewbtn" type="submit" immediate="true" resetValues="true"
-					ajax="true" value="New" icon="ui-icon-document"
-					actionListener="#{bean.create}" update=":form_main @form"
-					process="@this"
+<!-- 				<p:commandButton id="toolbarnewbtn" type="button" immediate="true" resetValues="true" -->
+<!-- 					ajax="true" value="New" icon="fa fa-plus" -->
+<!-- 					actionListener="#{bean.create}" update=":form_main @form" -->
+<!-- 					disabled="#{bean.editing eq true}" > -->
+<!-- 				</p:commandButton>					  -->
+				<p:commandButton id="toolbarnewbtn" type="button" 
+					ajax="true" value="New" icon="fa fa-plus"
+					onclick="newFormMain()"
 					disabled="#{bean.editing eq true}" >
 				</p:commandButton>					 
 					

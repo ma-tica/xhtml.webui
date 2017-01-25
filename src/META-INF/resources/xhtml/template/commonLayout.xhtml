@@ -27,9 +27,9 @@
 
 <h:body>
 
-	<h:form id="form_dialog">
+<!-- 	<h:form id="form_dialog"> -->
 		<p:panel binding="#{bean.dialogsPanel}"></p:panel>	
-	</h:form>
+<!-- 	</h:form> -->
 
 	<h:form id="form_growl">
 		<p:growl id="messages" showDetail="true" autoUpdate="true" />
@@ -66,6 +66,9 @@
 					update=":form_grid :form_growl :form_toolbar @form"
 					action="#{bean.cancel}" />
 
+				<p:remoteCommand name="newFormMain" process="@form"
+					update=":form_grid :form_growl :form_toolbar @form"
+					action="#{bean.create}" />
 
 				<p:remoteCommand name="startEding" process="@form"
 					update=":form_grid :form_growl :form_toolbar @form" />
