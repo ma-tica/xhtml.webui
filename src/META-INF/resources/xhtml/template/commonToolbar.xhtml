@@ -27,28 +27,28 @@
 <!-- 					disabled="#{bean.editing eq true}" > -->
 <!-- 				</p:commandButton>					  -->
 				<p:commandButton id="toolbarnewbtn" type="button" 
-					ajax="true" value="New" icon="fa fa-plus"
+					ajax="true" value="#{mclbl['common.new']}" icon="fa fa-plus"
 					onclick="newFormMain()"
 					disabled="#{bean.editing eq true}" >
 				</p:commandButton>					 
 					
 				<!--  Button SAVE  -->	
-				<p:commandButton id="toolbarsavebtn" type="button" ajax="true" value="Save"
-					icon="ui-icon-disk" onclick="saveFormMain();"
+				<p:commandButton id="toolbarsavebtn" type="button" ajax="true" value="#{mclbl['common.save']}"
+					icon="fa fa-check" onclick="saveFormMain();"
 					disabled="#{bean.selected eq null or bean.editing eq false }" >
 				</p:commandButton>
 
 				<!--  Button DELETE  -->
-				<p:commandButton id="toolbardeletebtn" type="button" ajax="true" value="Delete"
-					icon="ui-icon-trash" onclick="deleteFormMain();"
+				<p:commandButton id="toolbardeletebtn" type="button" ajax="true" value="#{mclbl['common.delete']}"
+					icon="fa fa-trash" onclick="deleteFormMain();"
 					disabled="#{bean.selected eq null or bean.editing eq true }" >					
 					<p:confirm header="Confirmation"
 						message="Procedere con l'eliminazione ?" icon="ui-icon-alert" />
 				</p:commandButton>
 
 				<!--  Button CANCEL  -->
-				<p:commandButton id="toolbarcancelbtn" type="button" ajax="true" value="Annulla"
-					icon="ui-icon-trash" 
+				<p:commandButton id="toolbarcancelbtn" type="button" ajax="true" value="#{mclbl['common.cancel']}"
+					icon="fa fa-undo" 
 					disabled="#{bean.editing eq false }"
 					onclick="cancelFormMain();">
 					<p:confirm header="Confirmation"

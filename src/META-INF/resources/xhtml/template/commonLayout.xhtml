@@ -59,16 +59,17 @@
 				<p:remoteCommand name="saveFormMain" process="@form"
 					update=":form_grid :form_growl :form_toolbar @form"
 					action="#{bean.save}" />
-				<p:remoteCommand name="deleteFormMain" process="@form"
+				<p:remoteCommand name="deleteFormMain" process="@this"
 					update=":form_grid :form_growl :form_toolbar @form"
 					action="#{bean.delete}" />
-				<p:remoteCommand name="cancelFormMain" process="@form"
+				<p:remoteCommand name="cancelFormMain" process="@this"
+					resetValues="true"
 					update=":form_grid :form_growl :form_toolbar @form"
 					action="#{bean.cancel}" />
 
-				<p:remoteCommand name="newFormMain" process="@form"
+				<p:remoteCommand name="newFormMain" process="@this"
 					update=":form_grid :form_growl :form_toolbar @form"
-					action="#{bean.create}" />
+					actionListener="#{bean.create}" />
 
 				<p:remoteCommand name="startEding" process="@form"
 					update=":form_grid :form_growl :form_toolbar @form" />
