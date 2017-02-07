@@ -25,7 +25,7 @@
 
 </h:head>
 
-<h:body>
+<h:body id="body">
 
 <!-- 	<h:form id="form_dialog"> -->
 		<p:panel binding="#{bean.dialogsPanel}"></p:panel>	
@@ -35,6 +35,7 @@
 		<p:growl id="messages" showDetail="true" autoUpdate="true" />
 	</h:form>
 
+	
 
 	<p:layout id="main_fullpage_layout" fullPage="true">
 		<p:layoutUnit position="north">
@@ -56,24 +57,29 @@
 			<h:form id="form_main">
 				<!-- 					<p:messages autoUpdate="true" id="msgs" showDetail="true" -->
 				<!-- 						showSummary="true" /> -->
-				<p:remoteCommand name="saveFormMain" process="@form"
+				<p:remoteCommand id="saveFormMain" name="saveFormMain" process="@form"
 					update=":form_grid :form_growl :form_toolbar @form"
 					action="#{bean.save}" />
-				<p:remoteCommand name="deleteFormMain" process="@this"
+				<p:remoteCommand id="deleteFormMain" name="deleteFormMain" process="@this"
 					update=":form_grid :form_growl :form_toolbar @form"
 					action="#{bean.delete}" />
-				<p:remoteCommand name="cancelFormMain" process="@this"
+				<p:remoteCommand id="cancelFormMain" name="cancelFormMain" process="@this"
 					resetValues="true"
 					update=":form_grid :form_growl :form_toolbar @form"
 					action="#{bean.cancel}" />
 
-				<p:remoteCommand name="newFormMain" process="@this"
+				<p:remoteCommand id="newFormMain" name="newFormMain" process="@this"
 					update=":form_grid :form_growl :form_toolbar @form"
 					actionListener="#{bean.create}" />
 
 				<p:remoteCommand name="startEding" process="@form"
 					update=":form_grid :form_growl :form_toolbar @form" />
 
+
+				<p:blockUI block="form_main, :form_grid" trigger="newFormMain, saveFormMain, deleteFormMain, cancelFormMain, :form_grid:selctionDatatable" >
+					LOADING...
+				</p:blockUI>
+				
 
 				<!-- 					<ui:insert name="content" /> -->
 				<ui:include src="commonForm.xhtml"></ui:include>
