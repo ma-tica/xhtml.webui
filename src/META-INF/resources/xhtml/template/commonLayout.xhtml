@@ -25,7 +25,7 @@
 
 </h:head>
 
-<h:body id="body">
+<h:body >
 
 <!-- 	<h:form id="form_dialog"> -->
 		<p:panel binding="#{bean.dialogsPanel}"></p:panel>	
@@ -35,8 +35,7 @@
 		<p:growl id="messages" showDetail="true" autoUpdate="true" />
 	</h:form>
 
-	
-
+		
 	<p:layout id="main_fullpage_layout" fullPage="true">
 		<p:layoutUnit position="north">
 			<ui:include src="commonToolbar.xhtml" />
@@ -53,7 +52,8 @@
 
 		</p:layoutUnit>
 
-		<p:layoutUnit position="center">
+		<p:layoutUnit id="mcmatica-center-layout" position="center">
+			
 			<h:form id="form_main">
 				<!-- 					<p:messages autoUpdate="true" id="msgs" showDetail="true" -->
 				<!-- 						showSummary="true" /> -->
@@ -88,7 +88,6 @@
 
 
 	</p:layout>
-
 
 	<script>
 		$(document).ready(

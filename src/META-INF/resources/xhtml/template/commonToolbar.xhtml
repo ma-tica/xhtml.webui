@@ -41,9 +41,10 @@
 				<!--  Button DELETE  -->
 				<p:commandButton id="toolbardeletebtn" type="button" ajax="true" value="#{mclbl['common.delete']}"
 					icon="fa fa-trash" onclick="deleteFormMain();"
-					disabled="#{bean.selected eq null or bean.editing eq true }" >					
+					disabled="#{bean.selected eq null or bean.editing eq true }" 
+					update=":form_grid">					
 					<p:confirm header="Confirmation"
-						message="Procedere con l'eliminazione ?" icon="ui-icon-alert" />
+						message="Procedere con l'eliminazione ?" icon="ui-icon-alert" />				
 				</p:commandButton>
 
 				<!--  Button CANCEL  -->
