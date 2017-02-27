@@ -10,10 +10,10 @@
 
 	<p:dataTable id="selctionDatatable" binding="#{bean.selectionGrid}"  paginator="true" rows="25" 
 				 scrollable="true" scrollHeight="100%" paginatorPosition="top"
-				 currentPageReportTemplate="Showing {startRecord}-{endRecord} out of {totalRecords}"
+				 currentPageReportTemplate="{startRecord}-{endRecord}  [{totalRecords}]"
 				 paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {NextPageLink} {LastPageLink}" 
 				 resizableColumns="true" resizeMode="fit">
-				 <p:ajax event="rowSelect" update=":form_main :form_toolbar :form_growl"  ></p:ajax>
+				 <p:ajax event="rowSelect" update=":form_main :form_toolbar :form_growl @this"  ></p:ajax>
 	</p:dataTable>
 
 

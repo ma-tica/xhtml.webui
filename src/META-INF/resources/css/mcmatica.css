@@ -1,0 +1,23 @@
+.ui-blockui {
+	background-color: rgba(255, 255, 255, 0.60) !important;
+}
+
+input.ui-widget {
+	font-weight: normal!important;
+}
+
+
+
+.my-label-column {
+	text-align: right;
+	width: 150px;
+	
+}
+
+.my-input-column {
+	width: 300px;
+}
+
+.my-last-column {
+	width: 100%;
+}
