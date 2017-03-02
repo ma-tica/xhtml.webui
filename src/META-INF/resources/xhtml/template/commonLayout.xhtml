@@ -33,7 +33,7 @@
 <!-- 	</h:form> -->
 
 	<p:ajaxStatus onstart="$('#gifloader').show();"		
-		oncomplete="console.log($('#gifloader'));  $('#gifloader').hide();" />
+		oncomplete="$('#gifloader').hide();" />
 
 
 	<h:form id="form_growl">
@@ -76,6 +76,11 @@
 				<p:remoteCommand id="newFormMain" name="newFormMain" process="@this"
 					update=":form_grid :form_growl :form_toolbar @form"
 					actionListener="#{bean.create}" />
+				<p:remoteCommand id="nextFormMain" name="nextFormMain" process="@this"
+					update=":form_grid :form_growl :form_toolbar @form"
+					actionListener="#{bean.next}" />
+
+
 
 				<p:remoteCommand name="startEding" process="@form"
 					update=":form_grid :form_growl :form_toolbar @form" />
@@ -100,7 +105,7 @@
 					var west = $('#mcmatica-west-layout > .ui-widget-content');
 
 					$('#form_grid').find('.ui-datatable-scrollable-body').css(
-							'height', west.height() - 115);
+							'height', max(west.height(), 500) - 115);
 
 					$('#gifloader').hide();
 					

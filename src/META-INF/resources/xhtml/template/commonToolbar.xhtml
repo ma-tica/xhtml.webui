@@ -8,7 +8,6 @@
 
 	<h:form id="form_toolbar">
 	
-<!-- 		<p:blockUI block=":main_fullpage_layout" trigger="toolbarnewbtn, toolbarsavebtn, toolbardeletebtn, toolbarcancelbtn" /> -->
 	
 		<p:confirmDialog global="true">
 			<p:commandButton value="Si" type="button"
@@ -21,11 +20,6 @@
 			<f:facet name="left">
 			
 				<!--  Button NEW  -->
-<!-- 				<p:commandButton id="toolbarnewbtn" type="button" immediate="true" resetValues="true" -->
-<!-- 					ajax="true" value="New" icon="fa fa-plus" -->
-<!-- 					actionListener="#{bean.create}" update=":form_main @form" -->
-<!-- 					disabled="#{bean.editing eq true}" > -->
-<!-- 				</p:commandButton>					  -->
 				<p:commandButton id="toolbarnewbtn" type="button" 
 					ajax="true" value="#{mclbl['common.new']}" icon="fa fa-plus"
 					onclick="newFormMain()"
@@ -59,11 +53,11 @@
 				<span class="ui-separator"> <span
 					class="ui-icon ui-icon-grip-dotted-vertical" />
 				</span>
-<!-- 				<p:commandButton type="submit" immediate="true" resetValues="true" -->
-<!-- 					ajax="true" value=">>" icon="ui-icon-document" -->
-<!-- 					actionListener="#{bean.next}" update=":form_grid :form_main @form" -->
-<!-- 					process="@this"> -->
-<!-- 				</p:commandButton>					  -->
+				<p:commandButton type="button" immediate="true" resetValues="true"
+					ajax="true"  icon="fa fa-next"
+					onclick="nextFormMain();" update=":form_grid :form_main @form"
+					process="@this">
+				</p:commandButton>					 
 
 			</f:facet>
 
