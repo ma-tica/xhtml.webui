@@ -21,3 +21,12 @@ input.ui-widget {
 .my-last-column {
 	width: 100%;
 }
+
+.ui-growl {   
+    position:fixed;
+    top: 85%;
+    left: 80%;
+    width: 360px;
+    height: 110px;
+    z-index:9999; 
+}
