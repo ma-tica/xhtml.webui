@@ -18,7 +18,12 @@
 
 		<p:toolbar>
 			<f:facet name="left">
-			
+				<!--  Button HOME  -->
+				<p:commandButton type="submit" action="#{bean.goToHome}" icon="fa fa-home" process="@this" ></p:commandButton>
+				<span class="ui-separator"> 
+					<span class="ui-icon ui-icon-grip-dotted-vertical" />
+				</span>
+							
 				<!--  Button NEW  -->
 				<p:commandButton id="toolbarnewbtn" type="button" 
 					ajax="true" value="#{mclbl['common.new']}" icon="fa fa-plus"
@@ -50,7 +55,8 @@
 						message="Annullare le modifiche in corso ?" icon="ui-icon-alert" />
 				</p:commandButton>
 
-				<span class="ui-separator"> <span
+				<span class="ui-separator"> 
+				<span
 					class="ui-icon ui-icon-grip-dotted-vertical" />
 				</span>
 				<p:commandButton type="button" resetValues="true"
@@ -64,11 +70,10 @@
 			<f:facet name="right">
 				
 				<i id="gifloader" class="fa fa-refresh fa-spin" style="font-size:24px"></i>
-				<p:spacer width="5" />
-				<p:commandButton type="submit"  value="Home" action="#{bean.goToHome}" icon="fa fa-home" process="@this" ></p:commandButton>
-<!-- 				<p:menuButton value="Options"> -->
+				<p:spacer width="7" />
+				<p:menuButton value="Functions" binding="#{bean.menuFunctions}" >
 <!-- 					<p:menuitem value="Home" action="#{bean.goToHome}" /> -->
-<!-- 				</p:menuButton> -->
+				</p:menuButton>
 			</f:facet>
 
 		</p:toolbar>
