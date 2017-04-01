@@ -30,3 +30,11 @@ input.ui-widget {
     height: 110px;
     z-index:9999; 
 }
+
+#form_toolbar {
+	margin-bottom: 0px!important;
+}
+
+#mcmatica-north-layout > .ui-layout-unit-content  { 
+	overflow: hidden; 
+} 
