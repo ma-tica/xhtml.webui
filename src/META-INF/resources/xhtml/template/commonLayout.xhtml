@@ -28,8 +28,12 @@
 
 <h:body >
 
+
+		<h:form id="searchDialogs">
+		</h:form>
+
 <!-- 	<h:form id="form_dialog"> -->
-		<p:panel binding="#{bean.dialogsPanel}"></p:panel>	
+		<p:panel id="dialogPanels" binding="#{bean.dialogsPanel}"></p:panel>	
 <!-- 	</h:form> -->
 
 	<p:ajaxStatus onstart="$('#gifloader').show();"		
