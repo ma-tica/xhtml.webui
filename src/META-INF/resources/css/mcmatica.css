@@ -38,3 +38,8 @@ input.ui-widget {
 #mcmatica-north-layout > .ui-layout-unit-content  { 
 	overflow: hidden; 
 } 
+
+.ui-selectonemenu .ui-selectonemenu-trigger {
+
+	height: 90%!important;
+}
