@@ -20,7 +20,8 @@
 		<p:toolbar >
 			<f:facet name="left">
 				<!--  Button HOME  -->
-				<p:commandButton type="submit" action="#{bean.goToHome}" icon="fa fa-home" process="@this" ></p:commandButton>
+				<p:commandButton type="submit" action="${bean.goToHome}" icon="fa fa-home" process="@this" ajax="false"  ></p:commandButton>
+				
 				<span class="ui-separator"> 
 					<span class="ui-icon ui-icon-grip-dotted-vertical" />
 				</span>
@@ -78,5 +79,8 @@
 			</f:facet>
 
 		</p:toolbar>
+		
+<!-- 		<input type="hidden" name="${_csrf.parameterName}" -->
+<!--             value="${_csrf.token}" /> -->
 	</h:form>
 </ui:composition>
