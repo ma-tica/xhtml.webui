@@ -10,13 +10,24 @@ input.ui-widget {
 
 .my-label-column {
 	text-align: right;
-	width: 150px;
-	
+	width: 200px;	
 }
+
+
 
 .my-input-column {
 	width: 300px;
 }
+
+.my-column-20-right {
+	text-align: right;
+	width: 20%;	
+}
+
+.my-column-80-left {
+	width: 80%;	
+}
+
 
 .my-last-column {
 	width: 100%;
