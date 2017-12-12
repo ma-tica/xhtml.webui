@@ -61,13 +61,24 @@
 				<span
 					class="ui-icon ui-icon-grip-dotted-vertical" />
 				</span>
-				<p:commandButton type="button" resetValues="true"
-					ajax="true"  icon="fa fa-next"
-					onclick="nextFormMain();" update=":form_grid :form_main @form"
-					process="@this">
-				</p:commandButton>					 
+
+				<p:commandButton icon="fa fa-arrows-alt"  ajax="true" 
+				actionListener="#{bean.onToggleExpandGridSearch}" oncomplete="toggleExpandGridSearch();" 
+				update=":form_grid:selctionDatatable @form" />
+
+				<p:commandButton value="Export as Excel" ajax="false" icon="fa fa-file-excel-o" 
+					onclick="PrimeFaces.monitorDownload(downloadShowStatus, downloadHideStatus)" 
+					rendered="#{bean.expandedSearchGridMode}" >
+					<p:dataExporter type="xls" target=":form_grid:selctionDatatable" fileName="data-export" />
+				</p:commandButton>
+				<i id="gifexport" class="fa fa-refresh fa-spin" style="font-size:20px"></i>
+<!-- 				<p:commandButton id="columnToggler"   icon="fa fa-bars" rendered="#{bean.expandedSearchGridMode}">								 -->
+<!-- 				</p:commandButton> -->
+<!-- 				<p:columnToggler datasource=":form_grid:selctionDatatable" trigger="columnToggler" />			 -->
 
 			</f:facet>
+
+
 
 			<f:facet name="right">
 				

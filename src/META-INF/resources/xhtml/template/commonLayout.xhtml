@@ -30,28 +30,65 @@
 
 
 		<h:form id="searchDialogs">
+<!-- 		<p:sidebar widgetVar="sidebar1" baseZIndex="10000"> -->
+<!--     		<h1 style="font-weight:normal">Left Sidebar</h1> -->
+<!--     		<p:commandButton value="Cancel" oncomplete="PF('sidebar1').hide()"/> -->
+<!-- 		</p:sidebar> -->
+		
+		
+<!-- 			<p:lightBox widgetVar="searchBox" style="width: 100%; height: 100%;"> -->
+<!-- 		  				 <h:outputLink value="#"> -->
+<!-- 				</h:outputLink>	 -->
+<!-- 				<f:facet name="inline"> -->
+<!-- 					<p:panel> -->
+<!-- 						<p:commandButton value="Close" oncomplete="PF('searchBox').hide()"/> -->
+<!-- 						<ui:include src="commonSearchPanel.xhtml"></ui:include> -->
+						
+<!-- 			    	</p:panel> -->
+			    	
+<!-- 				</f:facet> -->
+<!-- 			</p:lightBox>			 -->
+
+		<p:dialog widgetVar="searchBox" showEffect="fade" hideEffect="fade" closable="true" 
+			modal="true" responsive="true">  
+			<h1>Ciao Mondo</h1>
+			<p:dataTable var="item" value="#{bean.list}">
+			    <p:column headerText="Id">
+			        <h:outputText value="#{item.id}" />
+			    </p:column>
+			 
+			</p:dataTable>
+
+		</p:dialog>
+
 		</h:form>
 
 <!-- 	<h:form id="form_dialog"> -->
 		<p:panel id="dialogPanels" binding="#{bean.dialogsPanel}"></p:panel>	
 <!-- 	</h:form> -->
 
-	<p:ajaxStatus onstart="$('#gifloader').show();"		
-		oncomplete="$('#gifloader').hide();" />
+	<p:ajaxStatus onstart="$('#gifexport').hide(); $('#gifloader').show();"		
+		oncomplete="$('#gifexport').hide(); $('#gifloader').hide();" />
 
 
 	<h:form id="form_growl">
 		<p:growl id="messages" showDetail="true" autoUpdate="true" />
 	</h:form>
 
+
+
+
 		
-	<p:layout id="main_fullpage_layout" fullPage="true">
+	<p:layout id="main_fullpage_layout" widgetVar="main_fullpage_layout" fullPage="true">
 		<p:layoutUnit id="mcmatica-north-layout" position="north">
+
 			<ui:include src="commonToolbar.xhtml" />
 		</p:layoutUnit>
 
-		<p:layoutUnit id="mcmatica-west-layout" position="west"
-			closable="false" collapsible="true" resizable="true" size="30%"
+<!-- header="#{mclbl['selectiongrid.header']}" -->
+
+		<p:layoutUnit id="mcmatica-west-layout"   position="west"
+			closable="false" collapsible="true"  resizable="true" size="30%"
 			header="#{mclbl['selectiongrid.header']}" effect="">
 
 			<h:form id="form_grid">
@@ -61,7 +98,7 @@
 
 		</p:layoutUnit>
 
-		<p:layoutUnit id="mcmatica-center-layout" position="center">
+		<p:layoutUnit id="mcmatica-center-layout" position="center" >
 			
 			<h:form id="form_main">
 				<!-- 					<p:messages autoUpdate="true" id="msgs" showDetail="true" -->
@@ -94,6 +131,13 @@
 					
 				</p:blockUI>
 				
+<!-- 			<p:sidebar widgetVar="sidebar5" fullScreen="true" baseZIndex="10000">	 -->
+<!-- 		    	<h1 style="font-weight:normal">Full Screen Sidebar</h1> -->
+<!-- 		    	<p:commandButton value="Cancel" oncomplete="PF('sidebar5').hide()"/> -->
+<!-- 			</p:sidebar> -->
+
+
+
 
 				<!-- 					<ui:insert name="content" /> -->
 				<ui:include src="commonForm.xhtml"></ui:include>
@@ -105,18 +149,33 @@
 
 	<script>
 		$(document).ready(
-				function() {
-//					var west = $('#mcmatica-west-layout > .ui-widget-content');
+		function() {
 
-// 					$('#form_grid').find('.ui-datatable-scrollable-body').css(
-// 							'height', max(west.height(), 500) - 115);
-
-					$('#gifloader').hide();
-				
-					$.mask.definitions['A']='[A-Z0-9]';
-				});
+			$('#gifloader').hide();
+			$('#gifexport').hide();
 		
+			$.mask.definitions['A']='[A-Z0-9]';
+		});
+
+		function toggleExpandGridSearch() {
+			$('#gifexport').hide();
+			var zindex = $('#mcmatica-west-layout').css("z-index");
+			if (zindex === "1") {
+				$('#mcmatica-west-layout').css("width","30%");
+				$('#mcmatica-west-layout').css("z-index","0");
+			}else{
+				$('#mcmatica-west-layout').css("width","99.5%");
+				$('#mcmatica-west-layout').css("z-index","1");				
+			}
+		}		
 			   
+		
+		function downloadShowStatus() {
+				$('#gifexport').show();
+			}
+		function downloadHideStatus() {
+				$('#gifexport').hide();
+			}
 	</script>
 
 
